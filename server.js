@@ -3,9 +3,12 @@ let app = express ();
 
 let port = 8080;
 
+// Moteur de template
+app.set ('view engine', 'ejs');
+
 // Routing : 
 app.get ('/', (request, response) => {
-    response.send ('Salut !');
+    response.render ('pages/index', {test: 'Ceci est un test'})
 });
 
 app.listen (port, () => {
