@@ -24,6 +24,9 @@ app.use(session({
   cookie: { secure: false } /* pas de https */
 }));
 
+// Middleware flash
+app.use(require('./middlewares/flash'));
+
 // Routing : 
 app.get ('/', (request, response) => {
     console.log(request.session);

@@ -1,6 +1,6 @@
 module.exports = function (request, response, next) {
 
-    if (request.session.flash === undefined){
+    if (request.session.flash){
 	response.locals.flash = request.session.flash;
 	request.session.flash = undefined;
     }
