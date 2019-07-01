@@ -20,8 +20,11 @@ app.get ('/', (request, response) => {
     response.render ('pages/index', {test: 'Ceci est un test'})
 });
 
-app.post('/', (request, response) => {
-    console.log(request.body);
+app.post ('/', (request, response) => {
+    if (request.body.message === undefined ||request.body.message === '' ){
+	response.render('pages/index', {error :"Vous n'avez pas posté de message"});
+	response.redirect ('/');
+    }
 });
 
 app.listen (port, () => {
