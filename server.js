@@ -26,8 +26,11 @@ app.use(session({
 
 // Routing : 
 app.get ('/', (request, response) => {
-    console.log(request.session.error);
-    response.render ('pages/index', {test: 'Ceci est un test'})
+    if (request.session.error) {
+	response.locals.error = request.session.error;
+	request.session.error = undefined;
+    };
+    response.render ('pages/index');
 });
 
 app.post ('/', (request, response) => {
