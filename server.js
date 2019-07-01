@@ -4,10 +4,6 @@ let app = express ();
 let bodyParser = require ('body-parser');
 let session = require ('express-session');
 
-// Middleware body-parser
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
-
 let port = 8080;
 
 // Moteur de template
@@ -15,6 +11,10 @@ app.set ('view engine', 'ejs');
 
 // fichiers statics /assets/public
 app.use('/assets', express.static('public'));
+
+// Middleware body-parser
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 // sessions cookie
 app.use(session({
