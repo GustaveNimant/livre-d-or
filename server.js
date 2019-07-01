@@ -23,7 +23,6 @@ app.get ('/', (request, response) => {
 app.post ('/', (request, response) => {
     if (request.body.message === undefined ||request.body.message === '' ){
 	response.render('pages/index', {error :"Vous n'avez pas posté de message"});
-	response.redirect ('/');
     }
 });
 
